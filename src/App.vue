@@ -1,10 +1,13 @@
 <template>
+  <!-- Header -->
   <div class="header">
     <div class="chat-header">
       <img class="logo" src="./assets/logo.svg" alt="logo">
       <h1>MantiBot</h1>
     </div>
   </div>
+
+  <!-- Chat -->
   <div class="chat-window">
     <div v-for="(message, index) in chatMessages" :key="index" class="chat-message">
       <div :class="message.role">
@@ -12,6 +15,8 @@
       </div>
     </div>
   </div>
+
+  <!-- Input Mensajes -->
   <div class="input-container">
     <input v-model="userInput" type="text" placeholder="Escribe un mensaje..." @keydown.enter="sendMessage" />
     <button @click="sendMessage" :disabled="isLoading">Enviar</button>
@@ -30,7 +35,7 @@ const mantibot = new OpenAI({
 // Pautas que debe seguir la IA
 const systemInfo = {
   role: "system",
-  content: "Eres un asistente de IA experto en salud médica y tu nombre es MantiBot. Si te hacen una pregunta que no está relacionada con la salud médica, responde 'Lo siento, pero tu pregunta está más allá de mis funciones'."
+  content: "Eres un asistente de IA experto en salud médica y tu nombre es MantiBot. Si te hacen una pregunta que no está relacionada con la salud médica, responde 'Lo siento, pero tu pregunta está más allá de mis funciones'. Si alguien te saluda, preséntate con tu nombre y mencionales cuál es tu uso. Cuando saludes o termines una sesión haz uso de algunos emojis."
 }
 const messages = ref([systemInfo])
 const chatMessages = computed(() => {
