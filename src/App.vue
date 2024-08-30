@@ -11,7 +11,7 @@
   <div class="chat-window">
     <div v-for="(message, index) in chatMessages" :key="index" class="chat-message">
       <div :class="message.role">
-        {{ message.content }}
+        <vue-markdown :source="message.content" />
       </div>
     </div>
   </div>
@@ -26,6 +26,7 @@
 <script setup>
 import { computed, ref } from 'vue';
 import OpenAI from "openai";
+import VueMarkdown from 'vue-markdown-render'
 
 const mantibot = new OpenAI({
   apiKey: import.meta.env.VITE_OPENAI_KEY,
@@ -35,7 +36,7 @@ const mantibot = new OpenAI({
 // Pautas que debe seguir la IA
 const systemInfo = {
   role: "system",
-  content: "Eres un asistente de IA experto en salud médica y tu nombre es MantiBot. Si te hacen una pregunta que no está relacionada con la salud médica, responde 'Lo siento, pero tu pregunta está más allá de mis funciones'. Si alguien te saluda, preséntate con tu nombre y mencionales cuál es tu uso. Cuando saludes o termines una sesión haz uso de algunos emojis."
+  content: "Eres un asistente de IA experto en salud mental y emocional; experto en los estudios de Janis Leann Whitlock y Matthew K. Nock; y tu nombre es MantiBot. Eres un bot amigable que brinda consejos. Si te hacen una pregunta que no está relacionada con la salud mental o emocional, responde 'Lo siento, pero tu pregunta está más allá de mis funciones'. Si alguien te saluda, preséntate con tu nombre y mencionales cuál es tu uso. Cuando saludes o termines una sesión haz uso de algunos emojis."
 }
 const messages = ref([systemInfo])
 const chatMessages = computed(() => {
