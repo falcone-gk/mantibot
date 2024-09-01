@@ -4,7 +4,7 @@ body {
 }
 
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   display: flex;
   flex-direction: column;
   height: 100vh;
@@ -17,7 +17,7 @@ body {
   padding: 20px;
   overflow-y: auto;
   border-bottom: 1px solid #ccc;
-  background-color: white;
+  background-color: #94bcf6;
 }
 
 .chat-message {
@@ -26,7 +26,7 @@ body {
 
 .user {
   text-align: right;
-  background-color: #daf8cb;
+  background-color: #85cee3;
   padding: 10px;
   border-radius: 10px;
   max-width: 60%;
@@ -35,7 +35,7 @@ body {
 
 .assistant {
   text-align: left;
-  background-color: #e9e9eb;
+  background-color: #bbe8f5;
   padding: 10px;
   border-radius: 10px;
   max-width: 60%;
@@ -45,7 +45,7 @@ body {
   display: flex;
   padding: 10px;
   border-top: 1px solid #ccc;
-  background-color: white;
+  background-color: #bbe8f5;
 }
 
 input[type="text"] {
@@ -59,7 +59,7 @@ input[type="text"] {
 button {
   margin-left: 10px;
   padding: 10px 20px;
-  background-color: #4caf50;
+  background-color: #85cee3;
   color: white;
   border: none;
   border-radius: 5px;
@@ -68,7 +68,7 @@ button {
 }
 
 button:hover {
-  background-color: #45a049;
+  background-color: #67b9d2;
 }
 
 .header {
